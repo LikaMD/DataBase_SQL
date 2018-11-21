@@ -1,5 +1,5 @@
 # Laboratorul Nr.4
-
+```
 1. Interogarea Nr. 16 
 
 select distinct Nume_Student, Prenume_Student, Nume_profesor, Prenume_Profesor
@@ -18,12 +18,9 @@ inner join studenti s on sr.Id_Student = s.Id_Student
 where sr.Nota <= 4
 group by Nume_Student,Prenume_Student,Id_Disciplina
 having count(sr.Id_Disciplina)>2
-```
-
 
 3. Interogarea Nr. 35
 
-```SQL
 select d.Disciplina,AVG(cast(sr.Nota as float)) as Media
 from studenti_reusita sr
 inner join discipline d on sr.Id_Disciplina = d.Id_Disciplina
