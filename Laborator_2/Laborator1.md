@@ -1,8 +1,8 @@
 **Title: Crearea si intretinerea bazei de date**
 **Task 1:**
-![lab1](https://user-images.githubusercontent.com/33174896/45665328-01963d80-bb19-11e8-91c5-5ab06734b185.PNG)
+![lab1](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_2/1.png)
 **Task 2:**
-![lab1 1](https://user-images.githubusercontent.com/33174896/45665329-022ed400-bb19-11e8-8f02-4c1cfce39dce.PNG)
+![lab1 1](https://raw.githubusercontent.com/LikaMD/DataBase_SQL/master/Laborator_2/2.png)
 **Task 3:**
 ![lab1 2](https://user-images.githubusercontent.com/33174896/45665330-022ed400-bb19-11e8-8500-6427c94e42c8.PNG)
 **Task 4:**
