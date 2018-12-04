@@ -7,12 +7,9 @@ Sa se scrie o instructiune T-SQL, care ar popula coloana Adresa _ Postala _ Prof
 ![task01](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_6/task01.PNG)
 
 # Task 02
-
-
 Sa se modifice schema tabelului grupe, ca sa corespunda urmatoarelor cerinte:
 a) Campul Cod_ Grupa sa accepte numai valorile unice și să nu accepte valori necunoscute. 
-b) Să se țină cont că cheie primară, deja, este definită asupra coloanei Id_ Grupa. 
-
+b) Să se țină cont că cheie primară, deja, este definită asupra coloanei Id_ Grupa
 
 ![task02](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_6/task02.PNG)
 
@@ -189,4 +186,9 @@ INTO studenti_reusita_test1
 FROM studenti_reusita
 ```
 ![task081](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_6/task081.PNG)
+![task082](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_6/task082.PNG)
+
+
+
+
 
