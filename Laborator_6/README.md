@@ -2,23 +2,22 @@
 
 # Task 01
 
-```Sa se scrie o instructiune T-SQL, care ar popula coloana Adresa _ Postala _ Profesor din tabelul profesori cu valoarea 'mun. Chisinau', unde adresa este necunoscută.
-```
+Sa se scrie o instructiune T-SQL, care ar popula coloana Adresa _ Postala _ Profesor din tabelul profesori cu valoarea 'mun. Chisinau', unde adresa este necunoscută.
+
 ![task01](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_6/task01.PNG)
 
 # Task 02
 
-```
+
 Sa se modifice schema tabelului grupe, ca sa corespunda urmatoarelor cerinte:
 a) Campul Cod_ Grupa sa accepte numai valorile unice și să nu accepte valori necunoscute. 
 b) Să se țină cont că cheie primară, deja, este definită asupra coloanei Id_ Grupa. 
 
-```
+
 ![task02](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_6/task02.PNG)
 
 # Task 03 
 
-```
 La tabelul grupe, să se adauge 2 coloane noi Sef_grupa și Prof_Indrumator, ambele de tip INT. Să se populeze câmpurile nou-create cu cele mai potrivite candidaturi în baza criteriilor de mai jos:
 
 a) Șeful grupei trebuie să aibă cea mai bună reușită (medie) din grupă la toate formele de evaluare și la toate disciplinele. Un student nu poate fi șef de grupa la mai multe grupe.
@@ -26,7 +25,7 @@ a) Șeful grupei trebuie să aibă cea mai bună reușită (medie) din grupă la
 b) Profesorul îndrumător trebuie să predea un număr maximal posibil de discipline la grupa data. Daca nu există o singură candidatură, care corespunde primei cerințe, atunci este ales din grupul de candidați acel cu identificatorul (Id_Profesor) minimal. Un profesor nu poate fi indrumător la mai multe grupe.
 
 c) Să se scrie instructiunile ALTER, SELECT, UPDATE necesare pentru crearea coloanelor în tabelul grupe, pentru selectarea candidaților și înserarea datelor.
-
+```
 alter table grupe add sef_grupa int, prof_indrumator int;
 
 declare @nr_grupe int = (select count(Id_Grupa) from grupe)
@@ -57,14 +56,12 @@ alter table grupe add constraint prof_stud unique(sef_grupa,prof_indrumator);
 
 # Task 04
 
-```Să se scrie o instrucțiune T-SQL, care ar mări toate notele de evaluare șefilor de grupe cu un punct. Nota maximală (10) nu poate fi mărită.
+Să se scrie o instrucțiune T-SQL, care ar mări toate notele de evaluare șefilor de grupe cu un punct. Nota maximală (10) nu poate fi mărită.
 
-```
+
 ![task04](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_6/task04.PNG)
 
 # Task 05 
-
-```
 
 Sa se creeze un tabel profesori_new, care include urmatoarele coloane: Id_Profesor,Nume _ Profesor, Prenume _ Profesor, Localitate, Adresa _ 1, Adresa _ 2.
 
@@ -75,7 +72,7 @@ b) Cîmpul Localitate trebuie sa posede proprietatea DEFAULT= 'mun. Chisinau'.
 c) Să se insereze toate datele din tabelul profesori în tabelul profesori_new. Să se scrie, cu acest scop, un număr potrivit de instrucțiuni T-SQL.
 
 În coloana Localitate să fie inserata doar informatia despre denumirea localității din coloana-sursă Adresa_Postala_Profesor. În coloana Adresa_l, doar denumirea străzii. În coloana Adresa_2, să se păstreze numărul casei și (posibil) a apartamentului.
-
+```
 CREATE TABLE profesori_new
 (Id_Profesor int NOT NULL
  ,Nume_Profesor char(255)
@@ -127,9 +124,8 @@ from profesori_new
 
 # Task 06
 
-```
 Să se insereze datele in tabelul orarul pentru Grupa= 'CIBJ 71' (Id_ Grupa= 1) pentru ziua de luni. Toate lectiile vor avea loc în blocul de studii 'B'. Mai jos, sunt prezentate detaliile de inserare:
-
+```
 (ld_Disciplina = 107, Id_Profesor= 101, Ora ='08:00', Auditoriu = 202);
 
 (Id_Disciplina = 108, Id_Profesor= 101, Ora ='11:30', Auditoriu = 501);
@@ -155,3 +151,42 @@ Insert orarul (Id_Disciplina , Id_Profesor, Zi, Ora, Auditoriu)
        from orarul
 ```
 ![task06](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_6/task06.PNG)
+
+# Task 07
+
+Sa se scrie expresiile T-SQL necesare pentru a popula tabelul orarul pentru grupa INF171 , ziua de luni. Datele necesare pentru inserare trebuie sa fie colectate cu ajutorul instructiunii/instructiunilor SELECT si introduse in tabelul-destinatie, stiind ca: 
+lectie #1 (Ora ='08:00', Disciplina = 'Structuri de date si algoritmi', Profesor ='Bivol Ion')
+lectie #2 (Ora ='11 :30', Disciplina = 'Programe aplicative', Profesor ='Mircea Sorin')
+lectie #3 (Ora ='13:00', Disciplina ='Baze de date', Profesor = 'Micu Elena')
+
+```
+INSERT INTO orarul (Id_Disciplina, Id_Profesor, Id_Grupa, Zi, Ora, Auditoriu)
+values ((select Id_Disciplina from discipline where Disciplina = 'Structuri de date si algoritmi'),
+		(select Id_Profesor from profesori where Nume_Profesor = 'Bivol' and Prenume_Profesor = 'Ion'),
+		(select Id_Grupa from grupe where Cod_Grupa = 'INF171'), 'Lu', '08:00' , '1')
+
+INSERT INTO orarul (Id_Disciplina, Id_Profesor, Id_Grupa, Zi, Ora, Auditoriu)
+values ((select Id_Disciplina from discipline where Disciplina = 'Programe aplicative'),
+		(select Id_Profesor from profesori where Nume_Profesor = 'Mircea' and Prenume_Profesor = 'Sorin'),
+		(select Id_Grupa from grupe where Cod_Grupa = 'INF171'), 'Lu', '11:30' , '1')
+
+INSERT INTO orarul (Id_Disciplina, Id_Profesor, Id_Grupa, Zi, Ora, Auditoriu)
+values ((select Id_Disciplina from discipline where Disciplina = 'Baze de date'),
+		(select Id_Profesor from profesori where Nume_Profesor = 'Micu' and Prenume_Profesor = 'Elena'),
+		(select Id_Grupa from grupe where Cod_Grupa = 'INF171'), 'Lu', '13:00', '1')
+
+		select * from orarul
+```
+![task07](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_6/task07.PNG)
+
+# Task 08
+
+Sa se scrie interogarile de creare a indecsilor asupra tabelelor din baza de date universitatea pentru a asigura o performanta sporita la executarea interogarilor SELECT din Lucrarea practica 4. Rezultatele optimizarii sa fie analizate in baza planurilor de executie, pana la si dupa crearea indecsilor. Indecsii nou-creati sa fie plasati fizic in grupul de fisiere userdatafgroupl (Crearea si intrefinerea bazei de date - sectiunea 2.2.2)
+
+```
+SELECT *
+INTO studenti_reusita_test1
+FROM studenti_reusita
+```
+![task081](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_6/task081.PNG)
+
