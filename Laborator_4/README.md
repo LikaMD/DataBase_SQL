@@ -30,5 +30,5 @@ group by d.Disciplina
 having AVG(cast(sr.Nota as float)) > 7
 order by Media
 
-![task3](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_4/int35.PNG)
+!(https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_4/int35.PNG)
 ```
