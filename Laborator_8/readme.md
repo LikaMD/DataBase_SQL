@@ -1,7 +1,7 @@
 # Laboratorul Nr.8
 # Administrarea viziunilor si a expresiilor-tabel
 
-#TASK_01
+# TASK_01
 
 Sa se creeze doua viziuni in baza interogarilor formulate in doua exercitii indicate din capitolul Prima viziune sa fie construita in Editorul de interogari, iar a doua, utilizand View Designer.
 
@@ -13,7 +13,7 @@ Sa se creeze doua viziuni in baza interogarilor formulate in doua exercitii indi
 
 ![task012](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_8/task012.PNG)
 
-#TASK_02
+# TASK_02
 
 Sa se scrie cate un exemplu de instructiuni INSERT, UPDATE, DELETE asupra viziunilor create. Sa se adauge comentariile respective referitoare la rezultatele executarii acestor instructiuni.
 
@@ -44,7 +44,7 @@ select * from task11
 
 Functiile Insert, Update si Delete in viziune sunt posibile, numai daca noul tuplu satisface conditiile viziunii.
 
-#TASK_03
+# TASK_03
 
 Sa se scrie instructiunile SQL care ar modifica viziunile create (in exercitiul 1) in asa fel, incat sa nu fie posibila modificarea sau stergerea tabelelor pe care acestea sunt definite si viziunile sa nu accepte operatiuni DML, daca conditiile clauzei WHERE nu sunt satisfacute.
 
@@ -69,7 +69,7 @@ having AVG(cast(studenti.studenti_reusita.Nota as float)) > 7
 WITH CHECK OPTION;
 ```
 
-#TASK_04
+# TASK_04
 
 Sa se scrie instructiunile de testare a proprietatilor noi definite.
 
@@ -90,7 +90,7 @@ INSERT INTO task02
 values('Practica', 7)
 ```
 
-#TASK_05
+# TASK_05
 
 Sa se rescrie 2 interogari formulate in exercitiile din capitolul 4, in asa fel incat interogarile imbricate sa fie redate sub forma expresiilor CTE.
 
@@ -128,7 +128,7 @@ order by Media desc
 
 ![task032](https://github.com/LikaMD/DataBase_SQL/blob/master/Laborator_8/task032.PNG)
 
-#TASK_06
+# TASK_06
 
 * Se considera un graf orientat, si fie se doreste parcursa calea de la nodul id = 3 la nodul unde id = 0. Sa se faca reprezentarea grafului orientat in forma de expresie-tabel recursiv.
 ```SQL
